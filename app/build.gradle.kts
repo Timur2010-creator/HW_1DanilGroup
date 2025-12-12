@@ -1,13 +1,16 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.2.21"
+    id("kotlin-parcelize")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.example.hw_1danilgroup"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
+
+
 
     defaultConfig {
         applicationId = "com.example.hw_1danilgroup"
@@ -35,32 +38,42 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
-    //Для зависимостей:
-// 1. Сеть
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.okhttp3:okhttp:5.3.2")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.3.2")
-
-// 2. Сериализация (JSON -> Kotlin)
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
-    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
-
-// 3. Koin (DI)
-    implementation("io.insert-koin:koin-android:4.1.1")
-
-// 4. Coil (Картинки)
-    implementation("io.coil-kt.coil3:coil:3.3.0")
-    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    //Для зависимостей:
+    // 1. Сеть
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.okhttp3:okhttp:5.3.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.3.2")
+
+    // 2. Сериализация (JSON -> Kotlin)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
+    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
+
+    // 3. Koin (DI)
+    implementation("io.insert-koin:koin-android:4.1.1")
+
+    // 4. Coil (Картинки)
+    implementation("io.coil-kt.coil3:coil:3.3.0")
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.3.0")
+
+    // 5. Navigation(Навигация)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
 }
