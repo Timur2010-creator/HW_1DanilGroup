@@ -6,7 +6,7 @@
     app:startDestination="@id/productListFragment">
     <fragment
         android:id="@+id/productListFragment"
-        android:name="com.example.hw_1danilgroup.ui.product_list.ProductListFragment"
+        android:name="com.example.hw_1danilgroup.ui.fragments.product.ProductListFragment"
         android:label="fragment_product_list"
         tools:layout="@layout/fragment_product_list">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.example.hw_1danilgroup.ui.product_details.ProductDetailsFragment"
+        android:name="com.example.hw_1danilgroup.ui.fragments.product.detail.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details">
 
