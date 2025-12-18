@@ -6,9 +6,9 @@ import retrofit2.http.Path
 
 interface StoreApi {
 
-        @GET("products")
-        suspend fun getAllProduct(): List<ProductDto>
+    @GET("products")
+    suspend fun getAllProduct(): List<ProductDto>
 
-        @GET("products/{id}")
-        suspend fun getProductById(@Path("id") id: Int): ProductDto
-    }
+    @GET("products/{id}")
+    suspend fun getProductById(@Path("id") id: Int): ProductDto
+}

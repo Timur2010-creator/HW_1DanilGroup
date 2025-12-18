@@ -46,7 +46,7 @@ class ProductListFragment : Fragment() {
         loadProducts()
     }
 
-    private fun onClick(product: ProductDto) {
+    private fun onClick(product : ProductDto) {
         binding.progressBar.isVisible = true
         viewLifecycleOwner.lifecycleScope.launch {
             try {
