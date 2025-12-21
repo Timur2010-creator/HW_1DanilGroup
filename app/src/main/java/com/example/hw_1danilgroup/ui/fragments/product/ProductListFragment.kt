@@ -39,11 +39,13 @@ class ProductListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeState()
+        viewModel.loadProducts()
+
         adapter = ProductListAdapter { product ->
             onClick(product)
         }
         binding.recyclerView.adapter = adapter
-        loadProducts()
     }
 
     private fun onClick(product : ProductDto) {
@@ -63,21 +65,6 @@ class ProductListFragment : Fragment() {
 
     }
 
-    private fun loadProducts() {
-        binding.progressBar.isVisible = true
-
-        viewLifecycleOwner.lifecycleScope.launch {
-
-            try {
-                val product: List<ProductDto> = RetrofitService.api.getAllProduct()
-                adapter.submitList(product)
-            } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Ошибка: ${e.message}", Toast.LENGTH_SHORT).show()
-            } finally {
-                _binding?.progressBar?.isVisible = false
-            }
-        }
-    }
     private fun observeState(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
