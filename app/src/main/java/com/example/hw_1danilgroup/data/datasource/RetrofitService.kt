@@ -1,5 +1,6 @@
-package com.example.hw_1danilgroup.data.api
+package com.example.hw_1danilgroup.data.datasource
 
+import com.example.hw_1danilgroup.data.datasource.StoreApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient

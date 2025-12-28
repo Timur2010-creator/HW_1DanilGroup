@@ -1,4 +1,4 @@
-package com.example.hw_1danilgroup.data.api
+package com.example.hw_1danilgroup.data.datasource
 
 import com.example.hw_1danilgroup.data.models.ProductDto
 import retrofit2.http.GET

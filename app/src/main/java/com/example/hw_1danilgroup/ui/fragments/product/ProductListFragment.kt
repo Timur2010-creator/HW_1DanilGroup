@@ -12,7 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import com.example.hw_1danilgroup.data.api.RetrofitService
+import com.example.hw_1danilgroup.data.datasource.RetrofitService
 import com.example.hw_1danilgroup.data.models.ProductDto
 import com.example.hw_1danilgroup.databinding.FragmentProductListBinding
 import com.example.hw_1danilgroup.ui.adapters.ProductListAdapter

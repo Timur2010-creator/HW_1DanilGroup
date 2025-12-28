@@ -14,7 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import coil3.load
-import com.example.hw_1danilgroup.data.api.RetrofitService
+import com.example.hw_1danilgroup.data.datasource.RetrofitService
 import com.example.hw_1danilgroup.data.models.ProductDto
 import com.example.hw_1danilgroup.databinding.FragmentProductDetailsBinding
 import com.example.hw_1danilgroup.ui.models.UiState
