@@ -50,7 +50,7 @@ class ProductDetailsFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                val productData: ProductDto = RetrofitService.api.getProductById(args.productDto.id)
+                val productData: ProductDto = args.productDto
                 val productRating = productData.ratingDto
                 binding.imgProduct.load(productData.image)
                 binding.tvTitle.text = productData.title
@@ -81,7 +81,7 @@ class ProductDetailsFragment : Fragment() {
                             binding.tvTitle.text = state.data.title
                             binding.tvDescription.text = state.data.description
                             binding.tvPrice.text = state.data.price.toString()
-                            binding.tvRating.text = "${state.data.ratingDto.rate} (${state.data.ratingDto.count})"
+                            binding.tvRating.text = "${state.data.rating.rate} (${state.data.rating.count})"
                         }
                         is UiState.Error -> {
                             binding.progressBar.isVisible = false

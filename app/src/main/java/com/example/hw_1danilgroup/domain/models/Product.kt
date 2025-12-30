@@ -1,6 +1,5 @@
 package com.example.hw_1danilgroup.domain.models
 
-
 data class Product(
     val id: Int,
     val title: String,

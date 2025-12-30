@@ -14,7 +14,7 @@ fun ProductDto.toDomain(): Product{
         description = this.description ?: "" ,
         category = this.description ?: "",
         image = this.image ?: "",
-        rating = this.rating?.toDomain() ?: Rating.empty()
+        rating = this.ratingDto?.toDomain() ?: Rating.empty()
     )
 }
 fun RatingDto.toDomain(): Rating {
@@ -22,4 +22,25 @@ fun RatingDto.toDomain(): Rating {
         rate = this.rate ?: 0.0,
         count = this.count ?: 0
     )
+}
+fun Product.toData(): ProductDto{
+    return ProductDto(
+        id = this.id ?: -1,
+        title = this.title ?: "" ,
+        price = this.price ?: 0.0,
+        description = this.description ?: "" ,
+        category = this.description ?: "",
+        image = this.image ?: "",
+        ratingDto = this.rating?.toData()!!
+    )
+}
+fun Rating.toData(): RatingDto {
+    return RatingDto(
+        rate = this.rate ?: 0.0,
+        count = this.count ?: 0
+    )
+}
+fun List<ProductDto>.toDomain(): List<Product>{
+    return this.map {
+        dto -> dto.toDomain() }
 }

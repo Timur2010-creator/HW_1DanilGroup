@@ -13,8 +13,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.hw_1danilgroup.data.datasource.RetrofitService
+import com.example.hw_1danilgroup.data.mappers.toData
 import com.example.hw_1danilgroup.data.models.ProductDto
 import com.example.hw_1danilgroup.databinding.FragmentProductListBinding
+import com.example.hw_1danilgroup.domain.models.Product
 import com.example.hw_1danilgroup.ui.adapters.ProductListAdapter
 import com.example.hw_1danilgroup.ui.models.UiState
 import kotlinx.coroutines.launch
@@ -48,12 +50,12 @@ class ProductListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
     }
 
-    private fun onClick(product : ProductDto) {
+    private fun onClick(product : Product) {
         binding.progressBar.isVisible = true
         viewLifecycleOwner.lifecycleScope.launch {
             try {
                 val action = ProductListFragmentDirections.Companion
-                    .actionProductListFragmentToProductDetailsFragment(product)
+                    .actionProductListFragmentToProductDetailsFragment(product.toData())
 
                 findNavController().navigate(action)
             } catch (e: Exception) {

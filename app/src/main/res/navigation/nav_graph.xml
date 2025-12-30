@@ -18,7 +18,6 @@
         android:name="com.example.hw_1danilgroup.ui.fragments.product.detail.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details">
-
         <argument
             android:name="productDto"
             app:argType="com.example.hw_1danilgroup.data.models.ProductDto" />

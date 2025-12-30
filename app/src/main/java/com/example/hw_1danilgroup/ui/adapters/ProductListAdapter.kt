@@ -10,24 +10,25 @@ import coil3.load
 import coil3.request.crossfade
 import com.example.hw_1danilgroup.data.models.ProductDto
 import com.example.hw_1danilgroup.databinding.ItemProductBinding
+import com.example.hw_1danilgroup.domain.models.Product
 
-class ProductListAdapter(private val onClick: (ProductDto) -> Unit):
-    ListAdapter<ProductDto,ProductListAdapter.ProductViewHolder>(ProductDiffUtilCallback()){
+class ProductListAdapter(private val onClick: (Product) -> Unit):
+    ListAdapter<Product,ProductListAdapter.ProductViewHolder>(ProductDiffUtilCallback()){
 
-    private var items: List<ProductDto> = emptyList()
+    private var items: List<Product> = emptyList()
 
 
-    class ProductDiffUtilCallback : DiffUtil.ItemCallback<ProductDto>() {
+    class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(
-            oldItem: ProductDto,
-            newItem: ProductDto
+            oldItem: Product,
+            newItem: Product
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: ProductDto,
-            newItem: ProductDto
+            oldItem: Product,
+            newItem: Product
         ): Boolean {
             return oldItem == newItem
         }
@@ -49,7 +50,7 @@ class ProductListAdapter(private val onClick: (ProductDto) -> Unit):
     inner class ProductViewHolder(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(product: ProductDto) {
+        fun bind(product: Product) {
             with(binding) {
                 tvTitle.text = product.title
                 tvCategory.text = product.category
